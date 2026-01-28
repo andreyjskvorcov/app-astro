@@ -1,0 +1,1 @@
+export { default as PrintX } from './PrintX.vue'

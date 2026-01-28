@@ -1,0 +1,1 @@
+export { default as VideoTextBlock } from './VideoTextBlock.vue'

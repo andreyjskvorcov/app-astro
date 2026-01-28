@@ -1,0 +1,60 @@
+
+
+
+
+/* colors */
+$color-green: rgba(28, 172, 120, 1);
+$color-light-green: rgba(33, 215, 149, 1);
+$color-dark-purple: rgba(46, 39, 72, 1);
+$color-black: rgba(56, 56, 56, 1);
+$color-gray: rgba(246, 246, 246, 1);
+$color-total-white: rgba(255, 255, 255, 1);
+$color-total-black: rgba(0, 0, 0, 1);
+
+/* media breakpoints */
+$media-xs: 'max-width: 375px';
+$media-sm: 'max-width: 767px';
+$media-md: 'max-width: 1023px';
+$media-lg: 'max-width: 1279px';
+$media-xl: 'max-width: 1439px';
+$media-2xl: 'max-width: 1919px';
+
+/* fonts */
+$main-font: "Struve",-apple-system,blinkmacsystemfont,"Helvetica","Arial",sans-serif;
+
+/* grid */
+/* grid-template-columns :example grid-template-columns: $grid-cols-1 */
+$grid-cols-1: repeat(1, minmax(0, 1fr));
+$grid-cols-2: repeat(2, minmax(0, 1fr));
+$grid-cols-3: repeat(3, minmax(0, 1fr));
+$grid-cols-4: repeat(4, minmax(0, 1fr));
+$grid-cols-5: repeat(5, minmax(0, 1fr));
+$grid-cols-6: repeat(6, minmax(0, 1fr));
+$grid-cols-7: repeat(7, minmax(0, 1fr));
+$grid-cols-8: repeat(8, minmax(0, 1fr));
+$grid-cols-9: repeat(9, minmax(0, 1fr));
+$grid-cols-10: repeat(10, minmax(0, 1fr));
+$grid-cols-11: repeat(11, minmax(0, 1fr));
+$grid-cols-12: repeat(12, minmax(0, 1fr));
+
+/* grid-column :example grid-column: $col-span-1 */
+$col-span-1: span 1 / span 1;
+$col-span-2: span 2 / span 2;
+$col-span-3: span 3 / span 3;
+$col-span-4: span 4 / span 4;
+$col-span-5: span 5 / span 5;
+$col-span-6: span 6 / span 6;
+$col-span-7: span 7 / span 7;
+$col-span-8: span 8 / span 8;
+$col-span-9: span 9 / span 9;
+$col-span-10: span 10 / span 10;
+$col-span-11: span 11 / span 11;
+$col-span-12: span 12 / span 12;
+
+
+/* wrapper */
+$wrap: 1440px;
+
+
+
+$transition3: .3s ease-in-out all;

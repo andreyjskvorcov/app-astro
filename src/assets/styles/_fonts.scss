@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Struve;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('../fonts/Struve-Regular.woff2') format('woff2'),
+    url('../fonts/Struve-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Struve;
+  font-style: normal;
+  font-weight: 500;
+  src:
+    url('../fonts/Struve-Medium.woff2') format('woff2'),
+    url('../fonts/Struve-Medium.ttf') format('truetype');
+  font-display: swap;
+}

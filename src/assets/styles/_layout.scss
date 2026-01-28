@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(12px, 0.833vw, 16px);
+
+  @media (min-width: 1920px) {
+    html {
+      font-size: clamp(16px, 0.625vw, 18px);
+    }
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100vw;
+  background-color: rgb(238, 238, 238);
+  font-family: $main-font;
+  font-size: 14px;
+  line-height: 22px;
+  color: $color-black;
+  letter-spacing: 2%;
+
+  &.is-hidden {
+    overflow: hidden;
+  }
+}
