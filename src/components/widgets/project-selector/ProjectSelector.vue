@@ -5,7 +5,7 @@
         <div class="project-selector__title">
           <span>Инновации</span>
 
-          <h3>Управление корпоративной печатью</h3>
+          <h3 class="green">Управление корпоративной печатью</h3>
         </div>
 
         <div class="project-selector__separator"></div>
@@ -55,7 +55,6 @@
     gap: 10px;
     
     h3 {
-      color: $color-green;
       text-transform: none;
     }
   }

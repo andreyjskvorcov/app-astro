@@ -6,7 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:style": "stylelint \"**/*.{css,scss}\"",
+    "lint:style:fix": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.4",
@@ -15,14 +19,15 @@
     "vue": "^3.5.27"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-astro": "^1.5.0",
-    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-vue": "^10.7.0",
+    "globals": "^17.2.0",
+    "postcss-html": "^1.8.1",
+    "postcss-scss": "^4.0.9",
     "sass": "^1.97.3",
-    "typescript-eslint": "^8.54.0",
-    "vue-eslint-parser": "^10.2.0"
+    "stylelint": "^17.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript-eslint": "^8.54.0"
   }
 }

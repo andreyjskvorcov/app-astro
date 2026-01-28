@@ -1,12 +1,14 @@
 <template>
-  <div class="hero-section">
+  <div class="hero-section page-full">
+    <div class="hero-section__container container">
     <!-- <ScrollDownButton client:only='vue' /> -->
 
-    <!-- <PrintX client:only='vue' /> -->
-    
-    <!-- <ProjectSelector client:only='vue' /> -->
+      <!-- <PrintX client:only='vue' /> -->
+      
+      <!-- <ProjectSelector client:only='vue' /> -->
 
-    <VideoTextBlock client:only='vue' />
+      <VideoTextBlock client:only='vue' />
+    </div>
   </div>
 </template>
 
@@ -16,9 +18,6 @@ import { ScrollDownButton, PrintX, ProjectSelector, VideoTextBlock } from '@comp
 
 <style lang="scss">
 .hero-section {
-  width: 100%;
   min-height: 200vh;
-  position: relative;
-  overflow: hidden;
 }
 </style>

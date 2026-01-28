@@ -12,8 +12,8 @@
       <div class="header__lang">
         <span 
           v-for="lang in langs"
-         class="header__lang-item"
-         :key="lang.name" 
+         :key="lang.name"
+         class="header__lang-item" 
          :class="{'is-selected' : lang.selected}"
          @click="selectedLang(lang)"
         >
@@ -23,9 +23,9 @@
 
       <div class="header__burger" @click="onOpenMenu">
         <Transition>
-          <i class="u-icon u-icon-burger-open" v-if="isOpenMenu"></i>
+          <i v-if="isOpenMenu" class="u-icon u-icon-burger-open"></i>
 
-          <i class="u-icon u-icon-burger-close" v-else></i>
+          <i v-else class="u-icon u-icon-burger-close"></i>
         </Transition>
       </div>
     </div>
