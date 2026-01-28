@@ -1,16 +1,15 @@
 <template>
   <div ref="heroRef" class="hero-section page-full">
     <div class="hero-section__container container">
-      <!-- <ScrollDownButton client:only='vue' /> -->
+      <ScrollDownButton />
 
-      <!-- <PrintX client:only='vue' /> -->
+      <PrintX />
       
-      <!-- <ProjectSelector client:only='vue' /> -->
+      <ProjectSelector />
 
+      <VideoFile />
 
-      <VideoFile client:only='vue' />
-
-      <VideoText client:only='vue' />
+      <VideoText />
     </div>
   </div>
 </template>
