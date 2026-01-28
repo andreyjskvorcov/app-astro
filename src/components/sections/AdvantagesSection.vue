@@ -92,7 +92,7 @@ onMounted(() => {
   align-items: center;
 
   &__image {
-    background-image: url('../assets/images/advanteges-bg.webp');
+    background-image: url('../../assets/images/advanteges-bg.webp');
     place-items: center;
     background-size: cover;
     background-position: center;

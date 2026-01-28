@@ -115,7 +115,7 @@ onBeforeUnmount(() => {
   }
 
   &__image {
-    background-image: url('../assets/images/capability-bg.webp');
+    background-image: url('../../assets/images/capability-bg.webp');
     place-items: center;
     background-size: cover;
     background-position: center;
