@@ -12,6 +12,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .green {
@@ -24,4 +25,11 @@
 
 .white {
   color: $color-total-white;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0;
+  will-change: transform, opacity;
 }

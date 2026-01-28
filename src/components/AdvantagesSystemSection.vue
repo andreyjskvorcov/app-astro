@@ -8,8 +8,9 @@
       </h3>
 
       <div class="advantages-system-section__items">
-        <div 
-          v-for="item in items"
+       <div 
+          v-for="(item, index) in items"
+          :ref="el => itemRefs[index] = el"
           :key="item.num"
           class="advantages-system-section__item"
         >
@@ -29,9 +30,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
 interface Item {
-  num: string,
-  title: string,
+  num: string
+  title: string
   description: string
 }
 
@@ -57,6 +64,30 @@ const items: Item[] = [
     description: 'Возможность развивать и дорабатывать продукт по потребности заказчика'
   },
 ]
+
+const itemRefs = ref<HTMLElement[]>([])
+
+onMounted(() => {
+  gsap.fromTo(
+    itemRefs.value,
+    {
+      opacity: 0,
+      y: 40,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.advantages-system-section__items',
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    }
+  )
+})
 </script>
 
 <style lang="scss">

@@ -1,23 +1,32 @@
 <template>
-  <div class="hero-section page-full">
+  <div ref="heroRef" class="hero-section page-full">
     <div class="hero-section__container container">
-    <!-- <ScrollDownButton client:only='vue' /> -->
+      <!-- <ScrollDownButton client:only='vue' /> -->
 
       <!-- <PrintX client:only='vue' /> -->
       
       <!-- <ProjectSelector client:only='vue' /> -->
 
-      <VideoTextBlock client:only='vue' />
+
+      <VideoFile client:only='vue' />
+
+      <VideoText client:only='vue' />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ScrollDownButton, PrintX, ProjectSelector, VideoTextBlock } from '@components/widgets';
+import { ScrollDownButton, PrintX, ProjectSelector, VideoText, VideoFile } from '@components/widgets';
 </script>
 
 <style lang="scss">
 .hero-section {
-  min-height: 200vh;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.hero__video-wrap {
+  position: relative;
+  will-change: transform;
 }
 </style>

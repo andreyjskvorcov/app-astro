@@ -1,18 +1,20 @@
 <template>
   <div class="advanteges-section page-full">
-    <div ref="refImg" class="advanteges-section__image"></div>
+    <div
+      ref="refImg"
+      class="advanteges-section__image"
+    ></div>
 
     <div class="advanteges-section__container container">
       <div class="advanteges-section__items">
         <div
           v-for="(item, index) in items"
           :key="index"
+          :ref="el => itemRefs[index] = el"
           class="advanteges-section__item"
         >
           <h1 class="green">
-            <template v-if="index === 0">
-              До
-            </template>
+            <template v-if="index === 0">До</template>
 
             {{ item.percent }}
 
@@ -25,44 +27,63 @@
         </div>
       </div>
     </div>
-   
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface Item {
-  percent: string,
+  percent: string
   text: string
 }
 
 const items: Item[] = [
-  {
-    percent: '50',
-    text: 'снижение расходов на печать',
-  },
-  {
-    percent: '20–25',
-    text: `экономия благодаря сокращению нецелевой печати и внедрению политик`,
-  },
-  {
-    percent: '10–15',
-    text: 'снижение нагрузки на службу техподдержки',
-  }
+  { percent: '50', text: 'снижение расходов на печать' },
+  { percent: '20–25', text: 'экономия благодаря сокращению нецелевой печати и внедрению политик' },
+  { percent: '10–15', text: 'снижение нагрузки на службу техподдержки' }
 ]
 
-// import { useGsapAnimations } from '@/composables';
+const refImg = ref<HTMLElement | null>(null)
+const itemRefs = ref<HTMLElement[]>([])
 
-// const refImg = useGsapAnimations({
-//   yPercent: 40,
-//   ease: "none",
-//   scrollTrigger: {
-//     scrub: true,
-//     // trigger мы не передаём
-//     start: "top bottom",
-//     end: "bottom top",
-//   }
-// })
+onMounted(() => {
+  /* Background parallax (slow) */
+  if (refImg.value) {
+    gsap.to(refImg.value, {
+      y: 120,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.advanteges-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+    })
+  }
+
+  /* Foreground cards parallax (faster) */
+  gsap.fromTo(
+    itemRefs.value,
+    { y: 60, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.advanteges-section__items',
+        start: 'top 80%',
+        end: 'bottom 60%',
+        scrub: true,
+      },
+    }
+  )
+})
 </script>
 
 <style lang="scss">

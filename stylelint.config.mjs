@@ -18,6 +18,7 @@ export default {
   ],
 
   rules: {
+    "color-function-notation": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
   },
