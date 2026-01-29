@@ -1,6 +1,6 @@
 <template>
-  <div class="video-text">
-    <div ref="textRef" class="video-text__content">
+  <div class="hero-section-text">
+    <div ref="textRef" class="hero-section-text__content">
      <h1 class="reveal-text">
         Централизуем печать 
         на предприятиях 
@@ -11,11 +11,11 @@
       </h1>
     </div>
 
-    <div class="video-text__steps">
+    <div class="hero-section-text__steps">
       <div 
         v-for="item in items"
         :key="item.title"
-        class="video-text__steps-item"
+        class="hero-section-text__steps-item"
       >
         <div class="green">{{ item.title }}</div>
 
@@ -57,7 +57,7 @@ const items: Item[] = [
 import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 
-const textRef = ref(null);
+const textRef = ref<HTMLElement>();
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -118,7 +118,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.video-text {
+.hero-section-text {
   display: flex;
   flex-direction: column;
 

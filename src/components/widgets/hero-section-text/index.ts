@@ -1,0 +1,1 @@
+export { default as HeroSectionText } from './HeroSectionText.vue'

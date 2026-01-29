@@ -1,4 +1,5 @@
 export * from './scroll-down-button'
 export * from './print-x'
 export * from './project-selector'
-export * from './video'
+export * from './hero-section-text'
+export * from './hero-section-video'
