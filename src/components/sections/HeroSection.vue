@@ -19,5 +19,39 @@ import { ScrollDownButton, PrintX, ProjectSelector, HeroSectionText, HeroSection
 </script>
 
 <style lang="scss">
+.hero-section {
+  &__container {
+    z-index: 2;
+    position: relative;
+  }
 
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    top: -500px;
+    left: -500px;
+    background-color: $color-dark-purple-second;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -700px;
+    background-color: $color-green;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    opacity: 0.30;
+  }
+}
 </style>
