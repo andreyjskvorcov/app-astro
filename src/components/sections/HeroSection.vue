@@ -1,5 +1,5 @@
 <template>
-  <div ref="heroRef" class="hero-section page-full">
+  <div ref="heroRef" class="hero-section">
     <div class="hero-section__container container">
       <HeroSectionSearch ref="searchRef" />
 
@@ -45,14 +45,14 @@ onMounted(() => {
     scrollTrigger: {
       trigger: heroRef.value,      // лучше ссылка, чем селектор
       start: 'top top',
-      end: 'bottom top',         // или end: () => '+=' + heroRef.value?.offsetHeight
+      end: 'bottom',         // или end: () => '+=' + heroRef.value?.offsetHeight
       scrub: true,
       pin: true,
       markers: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },
-    x: -1000,
+    x: -700,
   })
 })
 
