@@ -1,7 +1,7 @@
 <template>
   <div ref="heroRef" class="hero-section page-full">
     <div class="hero-section__container container">
-      <HeroSectionSearch />
+      <HeroSectionSearch ref="searchRef" />
 
       <ScrollDownButton />
 
@@ -9,9 +9,13 @@
       
       <ProjectSelector />
 
-      <HeroSectionVideo />
+      <div ref="videoRef">
+        <HeroSectionVideo />
+      </div>
 
-      <HeroSectionText />
+      <div ref="textRef">
+        <HeroSectionText />
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +29,33 @@ import {
   HeroSectionVideo,
   HeroSectionSearch
 } from '@components/widgets';
+
+import { useGsap } from '@libs/gsap'
+import { onMounted, ref } from 'vue';
+
+const { gsap } = useGsap()
+
+const searchRef = ref(null)
+const textRef = ref(null)
+const videoRef = ref(null)
+const heroRef = ref(null)
+
+onMounted(() => {
+  gsap.to(videoRef.value, {
+    scrollTrigger: {
+      trigger: heroRef.value,      // лучше ссылка, чем селектор
+      start: 'top top',
+      end: 'bottom top',         // или end: () => '+=' + heroRef.value?.offsetHeight
+      scrub: true,
+      pin: true,
+      markers: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+    x: -1000,
+  })
+})
+
 </script>
 
 <style lang="scss">
@@ -32,6 +63,7 @@ import {
   &__container {
     z-index: 2;
     position: relative;
+    height: 100%;
     padding-bottom: 200px;
   }
 
