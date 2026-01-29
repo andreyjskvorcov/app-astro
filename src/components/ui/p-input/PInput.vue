@@ -7,7 +7,7 @@
      
     <slot v-if="$slots.before" name="before" />
 
-    <input v-model="model" />
+    <input v-bind="$attrs" v-model="model" />
 
     <slot v-if="$slots.after" name="after" />
   </div>
@@ -16,7 +16,10 @@
 <script setup>
 import { defineModel } from 'vue';
 
-const model = defineModel()
+const model = defineModel({
+  type: [String, Number],
+  default: ''
+})
 </script>
 
 
@@ -30,6 +33,8 @@ const model = defineModel()
     border-radius: 15px;
     background: rgba(246, 246, 246, 0.80);
     backdrop-filter: blur(12.5px);
+    border: none;
+    outline: none;
     display: flex;
     height: 64px;
     padding: 20px 30px;
@@ -45,7 +50,9 @@ const model = defineModel()
   }
 
   &.has-after {
-    .p-icon {
+    width: fit-content;
+
+    .u-icon {
       position: absolute;
       right: 30px;
       width: 24px;

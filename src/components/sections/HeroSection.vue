@@ -1,6 +1,8 @@
 <template>
   <div ref="heroRef" class="hero-section page-full">
     <div class="hero-section__container container">
+      <HeroSectionSearch />
+
       <ScrollDownButton />
 
       <PrintX />
@@ -15,7 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import { ScrollDownButton, PrintX, ProjectSelector, HeroSectionText, HeroSectionVideo } from '@components/widgets';
+import { 
+  ScrollDownButton,
+  PrintX,
+  ProjectSelector,
+  HeroSectionText, 
+  HeroSectionVideo,
+  HeroSectionSearch
+} from '@components/widgets';
 </script>
 
 <style lang="scss">
@@ -23,6 +32,7 @@ import { ScrollDownButton, PrintX, ProjectSelector, HeroSectionText, HeroSection
   &__container {
     z-index: 2;
     position: relative;
+    padding-bottom: 200px;
   }
 
   &::before {

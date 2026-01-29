@@ -1,6 +1,10 @@
 <template>
   <div class="project-selector">
     <div class="project-selector__container">
+      <PButton class="project-selector__navigation-left">
+        <i class="u-icon u-icon-arrow-left"></i>
+      </PButton>
+
       <div class="project-selector__content">
         <div class="project-selector__title">
           <span>Инновации</span>
@@ -15,14 +19,16 @@
         </div>
       </div>
       
-      <div class="project-selector__navigations">
-
-      </div>
+      <PButton class="project-selector__navigation-right">
+         <i class="u-icon u-icon-arrow-right"></i>
+      </PButton>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { PButton } from '@/components/ui';
+</script>
 
 <style lang="scss">
 .project-selector {
@@ -35,16 +41,18 @@
   &__content {
     backdrop-filter: blur(12.5px);
     padding: 30px 0;
-    max-width: 592px;
+    width: 592px;
     border-radius: 15px;
     background: rgba($color-total-white, 0.8);
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
   &__container {
     display: flex;
-    text-align: center;
+    align-items: flex-end;
+    gap: 32px;
   }
 
   &__title {
@@ -74,6 +82,11 @@
 
   &__description {
     padding: 0 32px;
+  }
+
+  &__navigation-left,
+  &__navigation-right {
+    width: 64px;
   }
 }
 

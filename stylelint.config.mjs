@@ -21,5 +21,6 @@ export default {
     "color-function-notation": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,
+    "color-function-alias-notation": null,
   },
 };

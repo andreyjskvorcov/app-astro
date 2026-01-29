@@ -28,8 +28,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger"
+import { useGsap } from '@libs/gsap'
+
+const { gsap } = useGsap()
 
 interface Item {
   num: string,
@@ -64,8 +65,6 @@ const items: Item[] = [
     description: 'Необходимый функционал для сотрудников, постоянно перемещающихся между филиалами компании — задание автоматически помещается на соответствующий сайт-сервер в соответствии с местоположением сотрудника'
   },
 ]
-
-gsap.registerPlugin(ScrollTrigger)
 
 const sectionRef = ref<HTMLElement | null>(null)
 const cardRefs = ref<(HTMLElement | null)[]>([])

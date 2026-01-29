@@ -31,16 +31,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useGsap } from '@libs/gsap'
 
 interface Item {
   num: string
   title: string
   description: string
 }
+
+const { gsap } = useGsap()
 
 const items: Item[] = [
   {

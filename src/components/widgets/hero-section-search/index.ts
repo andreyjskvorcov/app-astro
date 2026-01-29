@@ -1,0 +1,1 @@
+export { default as HeroSectionSearch } from './HeroSectionSearch.vue' 

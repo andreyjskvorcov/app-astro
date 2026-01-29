@@ -19,6 +19,10 @@
   background-image: url('../../assets/images/arrow-up-right.svg');
 }
 
+.u-icon-search {
+  background-image: url('../../assets/images/search.svg');
+}
+
 .u-icon-arrow-down-right {
   background-image: url('../../assets/images/arrow-down-right.svg');
 }
@@ -41,6 +45,15 @@
   background-image: url('../../assets/images/logo_dark.svg');
   width: 117px;
   height: 44px;
+}
+
+.u-icon-arrow-left {
+  background-image: url('../../assets/images/arrow-right.png');
+  transform: rotate(180deg);
+}
+
+.u-icon-arrow-right {
+  background-image: url('../../assets/images/arrow-right.png');
 }
 
 

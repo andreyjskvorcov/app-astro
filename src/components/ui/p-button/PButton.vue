@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<IProps>(), {
   display: flex;
   width: 100%;
   height: 64px;
-  padding: 32px;
+  padding: 11px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -48,6 +48,7 @@ const props = withDefaults(defineProps<IProps>(), {
   outline: none;
   border: none;
   transition: $transition3;
+  cursor: pointer;
 
   &:hover,
   &:active,
@@ -55,6 +56,11 @@ const props = withDefaults(defineProps<IProps>(), {
     opacity: 0.7;
     outline: none;
     border: none;
+  }
+
+  .u-icon {
+    width: 24px;
+    height: 24px;
   }
 }
 
