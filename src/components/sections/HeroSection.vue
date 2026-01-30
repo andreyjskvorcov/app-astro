@@ -48,7 +48,6 @@ onMounted(() => {
       end: 'bottom',         // или end: () => '+=' + heroRef.value?.offsetHeight
       scrub: true,
       pin: true,
-      markers: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
     },

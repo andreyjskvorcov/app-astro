@@ -53,18 +53,17 @@ const itemRefs = ref<HTMLElement[]>([])
 
 onMounted(() => {
   /* Background parallax (slow) */
-  if (refImg.value) {
-    gsap.to(refImg.value, {
-      y: 120,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.advanteges-section',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-    })
-  }
+  gsap.to(refImg.value, {
+    y: 300,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.advanteges-section',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  })
+
 
   /* Foreground cards parallax (faster) */
   gsap.fromTo(
