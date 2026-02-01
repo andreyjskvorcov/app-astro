@@ -75,7 +75,11 @@ onMounted(() => {
   ctx = gsap.context(() => {
     const cards = cardRefs.value.filter(Boolean) as HTMLElement[]
   
-    const totalWidth = cards.reduce((sum, el) => sum + el.offsetWidth, 0)
+    const gap = 334
+
+    const totalWidth = cards.reduce((sum, el) => sum + el.offsetWidth + gap, 0)
+
+    console.log('totalWidth', totalWidth)
 
     const scrollDistance = totalWidth
 
@@ -85,7 +89,7 @@ onMounted(() => {
         trigger: sectionRef.value,
         start: "top top",
         end: () => `+=${totalWidth}`,
-        scrub: true,
+        scrub: 1,
         pin: true,
         anticipatePin: 1,
       },
