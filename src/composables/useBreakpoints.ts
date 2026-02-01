@@ -17,7 +17,6 @@ export function useBreakpoints() {
   onMounted(() => {
     update();
     window.addEventListener("resize", update);
-    console.log('window.innerWidth;', window.innerWidth)
   });
 
   onUnmounted(() => {

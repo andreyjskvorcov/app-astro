@@ -58,8 +58,6 @@ const selectedLang = (lang: ILang): void => {
 }
 
 const onOpenMenu = (): void => {
-  console.log('click burger')
-
   isOpenMenu.value = !isOpenMenu.value
 }
 </script>

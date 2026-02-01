@@ -76,7 +76,6 @@ onMounted(() => {
   const elements = itemsRefs.value;
   const elementsOffsetWidth = itemsContainerRef.value.offsetWidth;
 
-  // Горизонтальный скролл
   const scrollTween = gsap.to(elements, {
     xPercent: -100 * (elements.length - 1),
     ease: "none",
@@ -88,7 +87,6 @@ onMounted(() => {
     },
   });
 
-  // FadeOut для каждой карточки
   elements.forEach((element) => {
     gsap.fromTo(
       element,

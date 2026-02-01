@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-// Определяем типы кнопок
 type ButtonType = 'primary' | 'outline' | 'light' | 'white' | 'link'
 
 interface IProps {

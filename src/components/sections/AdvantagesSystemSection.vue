@@ -84,8 +84,8 @@ onMounted(() => {
         ease: "power4.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 85%",   // 👈 элемент появляется, когда доходит снизу
-          end: "top 55%",     // 👈 у элемента есть «путь»
+          start: "top 85%",
+          end: "top 55%",
           scrub: true,
         },
       }

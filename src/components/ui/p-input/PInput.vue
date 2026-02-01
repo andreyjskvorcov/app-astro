@@ -2,9 +2,7 @@
   <div 
     class="p-input"
     :class="{'has-after': $slots.after, 'has-before' : $slots.before }"
-  >
-    <!-- TODO label -->   
-     
+  >     
     <slot v-if="$slots.before" name="before" />
 
     <input v-bind="$attrs" v-model="model" />

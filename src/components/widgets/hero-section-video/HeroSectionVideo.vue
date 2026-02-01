@@ -1,4 +1,3 @@
-<!-- src/components/widgets/hero-section-video/HeroSectionVideo.vue -->
 <template>
   <div class="hero-section-video">
     <div class="js-video-container"></div>
@@ -10,9 +9,9 @@ import { onMounted } from 'vue';
 
 
 onMounted(async () => {
-  await import('@/libs/transparent-video.js'); // создаёт window.instance
+  await import('@/libs/transparent-video.js')
 
-  const loopStart = 4;   // секунда, с которой циклить
+  const loopStart = 4;
   const loopEnd   = 5;
 
   window.instance?.setSources('/video/header_print_1.webm', '/video/header_print_4.mp4', (video) => {
@@ -29,8 +28,8 @@ onMounted(async () => {
       video.play();
     };
 
-    video.addEventListener('ended', startLoop); // после первого полного просмотра
-    video.play(); // запустить первый прогон
+    video.addEventListener('ended', startLoop);
+    video.play();
   });
 });
 

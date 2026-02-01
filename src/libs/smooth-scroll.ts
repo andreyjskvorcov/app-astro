@@ -18,7 +18,6 @@ if (typeof window !== 'undefined') {
 
   gsap.ticker.lagSmoothing(0);
 
-  // Отписки при hot-reload / выгрузке
   window.addEventListener('beforeunload', () => {
     gsap.ticker.remove(lenis.raf);
     lenis.destroy();

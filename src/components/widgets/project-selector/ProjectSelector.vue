@@ -1,5 +1,5 @@
 <template>
-  <div class="project-selector">
+  <div class="project-selector" :class="{ 'is-collapsed': props.isCollapsed}">
     <div class="project-selector__container">
       <PButton class="project-selector__navigation-left">
         <i class="u-icon u-icon-arrow-left"></i>
@@ -28,6 +28,8 @@
 
 <script lang="ts" setup>
 import { PButton } from '@/components/ui';
+
+const props = defineProps<{ isCollapsed: boolean}>()
 </script>
 
 <style lang="scss">
@@ -47,6 +49,8 @@ import { PButton } from '@/components/ui';
     display: flex;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
+    transition: $transition3;
   }
 
   &__container {
@@ -62,8 +66,13 @@ import { PButton } from '@/components/ui';
     text-transform: uppercase;
     gap: 10px;
     
+    span {
+      transition: $transition3;
+    }
+    
     h3 {
       text-transform: none;
+      transition: $transition3;
     }
   }
 
@@ -78,16 +87,43 @@ import { PButton } from '@/components/ui';
     background-size: 8px 2px;
     background-repeat: repeat-x;
     margin: 30px 0;
+    transition: $transition3;
   }
 
   &__description {
     padding: 0 32px;
+    transition: $transition3;
   }
 
   &__navigation-left,
   &__navigation-right {
     width: 64px;
   }
-}
 
+  &.is-collapsed {
+    .project-selector__title {
+      span {
+        position: absolute;
+        transform: translateX(-300px);
+        opacity: 0;
+      }
+
+      h3 {
+        font-size: 19px;
+        line-height: 24px;
+      }
+    }
+
+    .project-selector__description,
+    .project-selector__separator {
+      position: absolute;
+      transform: translateX(300px);
+      opacity: 0;
+    }
+
+    .project-selector__content {
+      padding: 20px 40px;
+    }
+  }
+}
 </style>
