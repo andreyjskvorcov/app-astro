@@ -2,7 +2,7 @@ import { computed, onMounted, onUnmounted, ref } from "vue";
 
 const BREAKPOINTS = {
   xs: 375,
-  md: 1280,
+  md: 1023,
   lg: 1920,
   xl: 2560,
 } as const;
@@ -17,6 +17,7 @@ export function useBreakpoints() {
   onMounted(() => {
     update();
     window.addEventListener("resize", update);
+    console.log('window.innerWidth;', window.innerWidth)
   });
 
   onUnmounted(() => {

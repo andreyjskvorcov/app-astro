@@ -1,23 +1,19 @@
 <template>
-  <div ref="heroRef" class="hero-section">
+  <section class="hero-section">
     <div class="hero-section__container container">
-      <HeroSectionSearch ref="searchRef" />
+      <!-- <HeroSectionSearch ref="searchRef" />
 
       <ScrollDownButton />
 
       <PrintX />
       
-      <ProjectSelector />
+      <ProjectSelector /> -->
 
-      <div ref="videoRef">
-        <HeroSectionVideo />
-      </div>
+     <HeroSectionVideo />
 
-      <div ref="textRef">
-        <HeroSectionText />
-      </div>
+     <HeroSectionText /> 
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -29,41 +25,50 @@ import {
   HeroSectionVideo,
   HeroSectionSearch
 } from '@components/widgets';
-
+import { useBreakpoints } from '@/composables';
 import { useGsap } from '@libs/gsap'
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 
-const { gsap } = useGsap()
+const { gsap, SplitText, ScrollTrigger } = useGsap()
 
-const searchRef = ref(null)
-const textRef = ref(null)
-const videoRef = ref(null)
-const heroRef = ref(null)
+const { isMobile } = useBreakpoints()
 
 onMounted(() => {
-  gsap.to(videoRef.value, {
-    scrollTrigger: {
-      trigger: heroRef.value,      // лучше ссылка, чем селектор
-      start: 'top top',
-      end: 'bottom',         // или end: () => '+=' + heroRef.value?.offsetHeight
-      scrub: true,
-      pin: true,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-    },
-    x: -700,
-  })
+
+  // const heroTextSplit = new SplitText('.hero-section-text__title', { type: 'lines'})
+
+  // const heroVideo = '.hero-section-video'
+
+  // gsap.from(heroTextSplit.lines, {
+  //   opacity: 0,
+  //   yPercent: 100,
+  //   duration: 1.8,
+  //   ease: 'expo.out',
+  //   stagger: 0.06,
+  //   delay: 1
+  // })
+
+  // const startValue = isMobile.value ? 'top 50%' : 'center 50%'
+  // const endValue = isMobile.value ? '120% top' : 'bottom top'
 })
+
+
 
 </script>
 
 <style lang="scss">
 .hero-section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 200px;
+  
   &__container {
     z-index: 2;
     position: relative;
     height: 100%;
-    padding-bottom: 200px;
   }
 
   &::before {

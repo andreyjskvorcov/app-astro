@@ -12,13 +12,14 @@ body {
   overflow-y: auto;
   min-height: 100vh;
   box-sizing: border-box;
-  width: 100vw;
+  position: relative;
   background-color: rgba(238, 238, 238);
   font-family: $main-font;
   font-size: 14px;
   line-height: 22px;
   color: $color-black;
   letter-spacing: 2%;
+  overscroll-behavior: none;
 
   &.is-hidden {
     overflow: hidden;

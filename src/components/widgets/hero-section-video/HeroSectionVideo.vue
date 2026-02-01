@@ -42,6 +42,8 @@ onMounted(async () => {
   width: 100%;
   position: relative;
   height: 100vh;
+  overflow: hidden;
+  z-index: 3;
 }
 
 </style>

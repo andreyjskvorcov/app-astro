@@ -1,5 +1,5 @@
 <template>
-  <div class="advanteges-section page-full">
+  <section class="advanteges-section">
     <div
       ref="refImg"
       class="advanteges-section__image"
@@ -10,7 +10,7 @@
         <div
           v-for="(item, index) in items"
           :key="index"
-          :ref="el => itemRefs[index] = el"
+          :ref="el => (itemsRef[index] = el as HTMLElement | null)"
           class="advanteges-section__item"
         >
           <h1 class="green">
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -48,40 +48,17 @@ const items: Item[] = [
 ]
 
 const refImg = ref<HTMLElement | null>(null)
-const itemRefs = ref<HTMLElement[]>([])
-
+const itemsRef = ref<(HTMLElement | null)[]>([])
 
 onMounted(() => {
-  /* Background parallax (slow) */
   gsap.to(refImg.value, {
-    y: 300,
-    ease: 'none',
+    yPercent: 30,
+    ease: "none",
     scrollTrigger: {
-      trigger: '.advanteges-section',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true,
-    },
-  })
-
-
-  /* Foreground cards parallax (faster) */
-  gsap.fromTo(
-    itemRefs.value,
-    { y: 60, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      stagger: 0.2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.advanteges-section__items',
-        start: 'top 80%',
-        end: 'bottom 60%',
-        scrub: true,
-      },
-    }
-  )
+      trigger: ".advanteges-section",
+      scrub: 1,
+    }, 
+  });
 })
 </script>
 
@@ -89,7 +66,11 @@ onMounted(() => {
 .advanteges-section {
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 100%;
   position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 
   &::before {
     content: '';

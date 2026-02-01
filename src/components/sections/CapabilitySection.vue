@@ -1,5 +1,5 @@
 <template>
-  <div ref="sectionRef" class="capability-section page-full">
+  <section ref="sectionRef" class="capability-section">
     <div class="capability-section__container container">
       <h3 class="capability-section__title white">
         <i class="u-icon u-icon-arrow-down-right"></i>
@@ -8,26 +8,28 @@
 
       <div class="capability-section__image"></div>
 
-      <div class="capability-section__items">
+      <div ref="itemsContainerRef" class="capability-section__items">
         <div 
-          v-for="(item, i) in items"
+          v-for="(item, index) in items"
           :key="item.num"
-          :ref="el => (cardRefs[i] = el as HTMLElement | null)"
+          :ref="el => (itemsRefs[index] = el as HTMLElement | null)"
           class="capability-section__item"
         >
-          <h3 class="green">{{ item.title }}</h3>
-          <h4 class="green">{{ item.num }}</h4>
-          <div class="capability-section__item-text">
-            {{ item.description }}
+          <div class="capability-section__item-wrap">
+            <h3 class="green">{{ item.title }}</h3>
+            <h4 class="green">{{ item.num }}</h4>
+            <div class="capability-section__item-text">
+              {{ item.description }}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue"
+import { onMounted, ref } from "vue"
 import { useGsap } from '@libs/gsap'
 
 const { gsap } = useGsap()
@@ -37,6 +39,10 @@ interface Item {
   title: string,
   description: string
 }
+
+const itemsContainerRef = ref<HTMLElement | null>(null)
+const sectionRef = ref<HTMLElement | null>(null)
+const itemsRefs = ref<(HTMLElement | null)[]>([])
 
 const items: Item[] = [
   {
@@ -66,48 +72,53 @@ const items: Item[] = [
   },
 ]
 
-const sectionRef = ref<HTMLElement | null>(null)
-const cardRefs = ref<(HTMLElement | null)[]>([])
-
-let ctx: gsap.Context | null = null
-
 onMounted(() => {
-  ctx = gsap.context(() => {
-    const cards = cardRefs.value.filter(Boolean) as HTMLElement[]
-  
-    const gap = 334
+  const elements = itemsRefs.value;
+  const elementsOffsetWidth = itemsContainerRef.value.offsetWidth;
 
-    const totalWidth = cards.reduce((sum, el) => sum + el.offsetWidth + gap, 0)
+  // Горизонтальный скролл
+  const scrollTween = gsap.to(elements, {
+    xPercent: -100 * (elements.length - 1),
+    ease: "none",
+    scrollTrigger: {
+      trigger: sectionRef.value,
+      pin: true,
+      scrub: 1,
+      end: () => "+=" + elementsOffsetWidth,
+    },
+  });
 
-    console.log('totalWidth', totalWidth)
-
-    const scrollDistance = totalWidth
-
-    gsap.to(cards, {
-      x: () => -scrollDistance,
-      scrollTrigger: {
-        trigger: sectionRef.value,
-        start: "top top",
-        end: () => `+=${totalWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      },
-    })
-  })
-})
-
-onBeforeUnmount(() => {
-  ctx?.revert()
-})
+  // FadeOut для каждой карточки
+  elements.forEach((element) => {
+    gsap.fromTo(
+      element,
+      { opacity: 1 },
+      {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: element,
+          containerAnimation: scrollTween,
+          start: "center center",
+          end: "right left",     
+          scrub: true,
+        },
+      }
+    );
+  });
+});
 </script>
 
 <style lang="scss">
 .capability-section {
   padding: 50px 0;
   background-color: $color-dark-purple;
+  width: 100%;
+  height: 100%;
   position: relative;
-
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  
   &::before {
     content: '';
     position: absolute;
@@ -137,10 +148,6 @@ onBeforeUnmount(() => {
     opacity: 0.30;
   }
 
-  &__container {
-    height: 100%;
-  }
-
   &__title {
     display: flex;
     gap: 30px;
@@ -163,19 +170,28 @@ onBeforeUnmount(() => {
   }
 
   &__item {
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(100px);
-    border-radius: 15px;
-    padding: 40px;
     position: relative;
-    height: 370px;
+    height: 100vh;
+    width: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     flex: 0 0 auto;
-    max-width: 592px;
 
     &:first-child {
-      margin-left: 664px;
+      margin-left: 300px;
+    }
+
+    &-wrap {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(100px);
+      border-radius: 15px;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      height: 370px;
+      width: 592px;
+      position: relative;
     }
 
     h3 {
@@ -195,11 +211,10 @@ onBeforeUnmount(() => {
   &__items {
     align-items: center;
     display: flex;
-    width: max-content; // 🔥 важно
+    width: max-content;
     position: relative;
     z-index: 2;
     height: 100%;
-    gap: 334px;
   }
 }
 </style>

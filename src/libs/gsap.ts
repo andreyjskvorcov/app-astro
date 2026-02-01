@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import SplitText from 'gsap/src/SplitText';
 
 let registered = false;
 
@@ -9,5 +10,5 @@ export function useGsap() {
     registered = true;
   }
 
-  return { gsap, ScrollTrigger } as const;
+  return { gsap, ScrollTrigger, SplitText } as const;
 }

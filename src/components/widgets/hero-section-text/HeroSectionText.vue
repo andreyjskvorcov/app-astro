@@ -1,7 +1,7 @@
 <template>
   <div class="hero-section-text">
-    <div ref="textRef" class="hero-section-text__content">
-     <h1 class="reveal-text">
+    <div class="hero-section-text__content">
+     <h1 class="hero-section-text__title">
         Централизуем печать 
         на предприятиях 
         с помощью комплексного решения 
@@ -54,66 +54,9 @@ const items: Item[] = [
   },
 ]
 
-import { onMounted, ref } from 'vue';
-import { gsap } from 'gsap';
-
-const textRef = ref<HTMLElement>();
-
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+import { onMounted } from 'vue';
 
 onMounted(() => {
-  if (!textRef.value) return;
-
-  const title = textRef.value.querySelector('.reveal-text') as HTMLElement;
-
-  const nodes = Array.from(title.childNodes);
-
-  title.innerHTML = '';
-
-  nodes.forEach(node => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      const words = node.textContent!.split(' ');
-
-      words.forEach(word => {
-        if (!word) return;
-
-        const span = document.createElement('div');
-        span.className = 'word';
-        span.innerHTML = word + '&nbsp;';
-        title.appendChild(span);
-      });
-    }
-
-    if (node.nodeType === Node.ELEMENT_NODE) {
-      const el = node as HTMLElement;
-      el.classList.add('word');
-      title.appendChild(el);
-      title.appendChild(document.createTextNode(' '));
-    }
-  });
-
-  const wordEls = title.querySelectorAll('.word');
-
-  gsap.fromTo(
-    wordEls,
-    {
-      y: 12,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      stagger: 0.15,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: title,
-        start: 'top 80%',
-        end: 'top 40%',
-        scrub: 0.6,
-      },
-    }
-  );
 });
 </script>
 
@@ -121,6 +64,11 @@ onMounted(() => {
 .hero-section-text {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 
   &__content {
     width: 748px;

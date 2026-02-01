@@ -1,5 +1,5 @@
 <template>
-  <div class="advantages-system-section page-full">
+  <section class="advantages-system-section">
     <div class="advantages-system-section__container container">
       <h3 class="advantages-system-section__title">
         <i class="u-icon u-icon-arrow-down-right"></i>
@@ -10,7 +10,7 @@
       <div class="advantages-system-section__items">
        <div 
           v-for="(item, index) in items"
-          :ref="el => itemRefs[index] = el"
+          :ref="el => (itemsRefs[index] = el as HTMLElement | null)"
           :key="item.num"
           class="advantages-system-section__item"
         >
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -64,34 +64,43 @@ const items: Item[] = [
   },
 ]
 
-const itemRefs = ref<HTMLElement[]>([])
+const itemsRefs = ref<(HTMLElement | null)[]>([])
 
 onMounted(() => {
-  gsap.fromTo(
-    itemRefs.value,
-    {
-      opacity: 0,
-      y: 40,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: '.advantages-system-section__items',
-        start: 'top 80%',
-        toggleActions: 'play none none none',
+  const elements = itemsRefs.value;
+
+  elements.forEach((el) => {
+    gsap.fromTo(
+      el,
+      {
+        opacity: 0,
+        y: 120,
+        scale: 0.95,
       },
-    }
-  )
-})
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",   // 👈 элемент появляется, когда доходит снизу
+          end: "top 55%",     // 👈 у элемента есть «путь»
+          scrub: true,
+        },
+      }
+    );
+  });
+});
 </script>
 
 <style lang="scss">
 .advantages-system-section {
-  padding: 50px 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 
   &__title {
     display: flex;
