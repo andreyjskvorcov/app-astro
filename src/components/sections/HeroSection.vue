@@ -48,20 +48,19 @@ onMounted(() => {
     }
   })
 
-  gsap.to('.hero-section-video', {
-    xPercent: -70,
-    scrollTrigger: {
-      scrub: true,
-      start: "10% 30%",
-      end: "60% 30%",
-    }
-  })
+  // gsap.to('.hero-section-video', {
+  //   xPercent: -70,
+  //   scrollTrigger: {
+  //     scrub: true,
+  //     start: "10% 30%",
+  //     end: "60% 30%",
+  //   }
+  // })
 
   ScrollTrigger.create({
     trigger: sectionRef.value,
     start: "10% 30%",
     end: "60% 30%",
-    markers: true,
     onEnter: () => {
       projectSelectorCollapsed.value = true
     },

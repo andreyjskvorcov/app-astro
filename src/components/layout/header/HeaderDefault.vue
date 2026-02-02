@@ -69,15 +69,27 @@ const onOpenMenu = (): void => {
   left: 40px;
   height: 88px;
   z-index: 10;
-  backdrop-filter: blur(25px);
-  background: rgba($color-gray, 0.8);
-  border-radius: 20px;
 
   &__container {
     display: flex;
     padding: 0 0 0 32px;
     height: 100%;
     align-items: center;
+    position: relative;
+
+    &::before {
+      backdrop-filter: blur(25px);
+      background: rgba($color-gray, 0.8);
+      border-radius: 20px 0 0 20px;
+      clip-path: polygon(5% 0, 100% 0, 100% 80%, 100% 100%, 0 100%, 0 30%);
+      content: '';
+      position: absolute;
+      width: calc(100% - 88px);
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
   }
 
   &__slogan {
@@ -130,8 +142,8 @@ const onOpenMenu = (): void => {
     cursor: pointer;
     background-color: $color-green;
     border-radius: 0 20px 20px 0;
-    position: relative;
     transition: $transition3;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 0 100%, 0% 50%);
 
     &:hover {
       background-color: $color-light-green;
