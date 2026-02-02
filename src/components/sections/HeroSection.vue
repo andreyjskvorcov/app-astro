@@ -1,10 +1,11 @@
 <template>
   <section class="hero-section">
     <div class="hero-section__container">
-      <!-- <HeroSectionSearch ref="searchRef" /> -->
+      <HeroSectionSearch ref="searchRef" />
 
       <div class="hero-section__pinned-blocks">
-        <ProjectSelector />
+    
+        <ProjectSelector :class="{'is-collapsed' : isCollapsed }" />
 
         <HeroSectionVideo />
 
@@ -13,9 +14,7 @@
         <PrintX />
       </div>
 
-      <div class="hero-section__pinned-text">
-        <HeroSectionText />
-      </div>
+      <HeroSectionText />
     </div>
   </section>
 </template>
@@ -34,25 +33,28 @@ import { onMounted, ref } from 'vue';
 
 const { gsap, SplitText, ScrollTrigger, ScrollSmoother } = useGsap()
 
-const projectSelectorCollapsed = ref(false)
+const isCollapsed = ref(false)
 const sectionRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
-  // const heroTextSplit = new SplitText('.hero-section-text__title', { type: 'lines'})
+  const heroTextSplit = new SplitText('.hero-section-text__title', { type: 'lines'})
 
-  // gsap.from(heroTextSplit.lines, {
-  //   duration: 1.8,
-  //   ease: 'expo.out',
-  //   stagger: 0.06,
-  //   scrollTrigger: {
-  //     start: "top top",
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //   }
-  // })
+  gsap.from(heroTextSplit.lines, {
+  ease: "none",
+  stagger: 0.06,
+  yPercent: 120,
+  autoAlpha: 0,
+  scrollTrigger: {
+    trigger: ".hero-section",
+    start: "30% center",
+    end: "+=600",      // больше = плавнее
+    scrub: true,
+    markers: true,
+  },
+  })
 
   gsap.to('.hero-section-video', {
-    xPercent: -80,
+    xPercent: -75,
     scrollTrigger: {
       trigger: sectionRef.value,
       scrub: true,
@@ -65,27 +67,26 @@ onMounted(() => {
     opacity: 1,
     scrollTrigger: {
       trigger: sectionRef.value,
-      scrub: true,
-      markers: true,
-      start: "top top",
-      end: "bottom bottom", // меньше значение = быстрее
+      start: "top center",
+      endTrigger: '.hero-section',
+      end: 'bottom center'
     }
   })
 
-  // ScrollTrigger.create({
-  //   trigger: sectionRef.value,
-  //   start: "10% 30%",
-  //   end: "60% 30%",
-  //   onEnter: () => {
-  //     projectSelectorCollapsed.value = true
-  //   },
-  //   onLeaveBack: () => {
-  //     projectSelectorCollapsed.value = false
-  //   },
-  //   onLeave: () => {
-  //     projectSelectorCollapsed.value = true
-  //   },
-  // });
+  ScrollTrigger.create({
+    trigger: sectionRef.value,
+    start: "10% 30%",
+    end: "60% 30%",
+    onEnter: () => {
+      isCollapsed.value = true
+    },
+    onLeaveBack: () => {
+      isCollapsed.value = false
+    },
+    onLeave: () => {
+      isCollapsed.value = true
+    },
+  });
 
   ScrollTrigger.create({
     trigger: ".hero-section__pinned-blocks",
@@ -110,6 +111,7 @@ onMounted(() => {
     z-index: 2;
     position: relative;
     min-height: 200vh;
+    padding-bottom: 200px;
   }
 
   &::before {
@@ -149,14 +151,8 @@ onMounted(() => {
   left: 0;
   width: 100%;
   z-index: 2;
-}
-
-.hero-section__pinned-text {
-  min-height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

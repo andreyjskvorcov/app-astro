@@ -39,11 +39,10 @@ onMounted(async () => {
 <style lang="scss">
 .hero-section-video {
   width: 1216px;
-  position: relative;
+  position: absolute;
   height: 100vh;
   overflow: hidden;
   z-index: 3;
-  margin: 0 auto;
 }
 
 </style>

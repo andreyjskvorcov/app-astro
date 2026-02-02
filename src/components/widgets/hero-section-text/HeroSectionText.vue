@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-section-text">
+  <div class="hero-section-text container">
     <div class="hero-section-text__content">
      <h1 class="hero-section-text__title">
         Централизуем печать 
@@ -66,11 +66,11 @@ onMounted(() => {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 400px;
   overflow: hidden;
+  padding-top: 100vh;
   z-index: 1;
   opacity: 0;
+  top: 900px;
 
   &__content {
     width: 748px;
@@ -79,7 +79,7 @@ onMounted(() => {
   }
   
   &__steps {
-    margin: 70px 0 0 auto;
+    margin: 150px 0 0 auto;
     gap: 32px;
     display: grid;
     grid-template-columns: $grid-cols-3;
