@@ -163,8 +163,9 @@ onMounted(() => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 734px;
-    height: 700px;
+    width: 800px;
+    height: 759px;
+    margin: 12px 2px;
   }
 
   &__item {
@@ -175,6 +176,7 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
+    padding-bottom: 32px;
 
     &:first-child {
       margin-left: 300px;

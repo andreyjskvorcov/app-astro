@@ -15,7 +15,7 @@
 .scroll-down-button {
   position: fixed;
   bottom: 40px;
-  left: 34px;
+  left: 40px;
   display: flex;
   gap: 15px;
   align-items: center;

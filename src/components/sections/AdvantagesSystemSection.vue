@@ -108,29 +108,33 @@ onMounted(() => {
     align-items: center;
   }
 
+  &__container  {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   &__item {
     display: flex;
-    align-items: center;
+    align-items: end;
     padding: 60px 0;
     position: relative;
 
     &:last-child {
-    &::after {
-      content: '';
-      height: 1px;
-      width: 100%;
-      background-image: linear-gradient(
-        to right,
-        $color-black 50%,
-        transparent 0
-      );
-      background-size: 8px 2px;
-      background-repeat: repeat-x;
-      margin: 30px 0;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
+      &::after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background-image: linear-gradient(
+          to right,
+          $color-black 50%,
+          transparent 0
+        );
+        background-size: 8px 2px;
+        background-repeat: repeat-x;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
     }
 
     &::before {
@@ -151,6 +155,13 @@ onMounted(() => {
 
     h1 {
       display: flex;
+      position: relative;
+
+      sup {
+        position: absolute;
+        right: -40px;
+        top: 0;
+      }
     }
 
     h3 {

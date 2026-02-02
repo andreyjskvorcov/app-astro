@@ -133,6 +133,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     padding: 40px;
+    text-transform: lowercase;
 
     &:first-child {
       grid-area: 1 / 1 / 2 / 2;;

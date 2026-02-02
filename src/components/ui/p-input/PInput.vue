@@ -52,7 +52,7 @@ const model = defineModel({
 
     .u-icon {
       position: absolute;
-      right: 30px;
+      right: 36px;
       width: 24px;
       height: 24px;
     }
