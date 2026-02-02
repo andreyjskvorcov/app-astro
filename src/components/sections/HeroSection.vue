@@ -25,13 +25,10 @@ import {
   HeroSectionVideo,
   HeroSectionSearch
 } from '@components/widgets';
-import { useBreakpoints } from '@/composables';
 import { useGsap } from '@libs/gsap'
 import { onMounted, ref } from 'vue';
 
 const { gsap, SplitText, ScrollTrigger } = useGsap()
-
-const { isMobile } = useBreakpoints()
 
 const projectSelectorCollapsed = ref(false)
 const sectionRef = ref<HTMLElement | null>(null)
