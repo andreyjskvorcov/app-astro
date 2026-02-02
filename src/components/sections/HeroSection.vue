@@ -40,17 +40,16 @@ onMounted(() => {
   const heroTextSplit = new SplitText('.hero-section-text__title', { type: 'lines'})
 
   gsap.from(heroTextSplit.lines, {
-  ease: "none",
-  stagger: 0.06,
-  yPercent: 120,
-  autoAlpha: 0,
-  scrollTrigger: {
-    trigger: ".hero-section",
-    start: "30% center",
-    end: "+=600",      // больше = плавнее
-    scrub: true,
-    markers: true,
-  },
+    ease: "none",
+    stagger: 0.06,
+    yPercent: 120,
+    autoAlpha: 0,
+    scrollTrigger: {
+      trigger: ".hero-section",
+      start: "30% center",
+      end: "+=600",      // больше = плавнее
+      scrub: true,
+    },
   })
 
   gsap.to('.hero-section-video', {
