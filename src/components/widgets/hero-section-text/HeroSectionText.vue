@@ -70,32 +70,44 @@ onMounted(() => {
   padding-top: 100vh;
   z-index: 1;
   opacity: 0;
-  top: 900px;
+  top: rem(900px);
 
   &__content {
-    width: 748px;
+    max-width: rem(748px);
     margin-left: auto;
-    margin-right: 156px;
+    margin-right: rem(156px);
+    width: 100%;
   }
   
   &__steps {
-    margin: 150px 0 0 auto;
-    gap: 32px;
+    margin: rem(150px) 0 0 auto;
+    gap: rem(32px);
     display: grid;
     grid-template-columns: $grid-cols-3;
-    max-width: 904px;
+    max-width: rem(904px);
     width: 100%;
+
+    @media ($media-md) {
+      margin: rem(42px) 0 0 auto;
+      grid-template-columns: $grid-cols-2;
+      gap: rem(9px);
+    }
 
     &-item {
       grid-column: $col-span-1;
       background: rgba($color-total-white, 0.8);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border-radius: 15px;
-      padding: 40px;
-      min-height: 272px;
+      backdrop-filter: blur(rem(25px));
+      -webkit-backdrop-filter: blur(rem(25px));
+      border-radius: rem(15px);
+      padding: rem(40px);
+      min-height: rem(272px);
       display: flex;
       flex-direction: column;
+
+      @media ($media-md) {
+        min-height: rem(200px);
+        padding: rem(18px);
+      }
 
       h4 {
         margin-top: auto;

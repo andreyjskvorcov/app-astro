@@ -65,57 +65,84 @@ const onOpenMenu = (): void => {
 <style lang="scss">
 .header {
   position: fixed;
-  top: 40px;
-  left: 40px;
-  height: 88px;
+  top: rem(40px);
+  left: rem(40px);
+  height: rem(88px);
   z-index: 10;
+
+  @media ($media-md) {
+    top: rem(20px);
+    left: rem(12px);
+    height: rem(58px);
+  }
 
   &__container {
     display: flex;
-    padding: 0 0 0 32px;
+    padding: 0 0 0 rem(32px);
     height: 100%;
     align-items: center;
     position: relative;
 
+    @media ($media-md) {
+      padding: 0 0 0 rem(21px);
+    }
+
     &::before {
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(rem(25px));
+      -webkit-backdrop-filter: blur(rem(25px));
       background: rgba($color-gray, 0.8);
-      border-radius: 20px 0 0 20px;
+      border-radius: rem(20px) 0 0 rem(20px);
       clip-path: polygon(5% 0, 100% 0, 100% 80%, 100% 100%, 0 100%, 0 30%);
       content: '';
       position: absolute;
-      width: calc(100% - 88px);
+      width: calc(100% - rem(88px));
       height: 100%;
       left: 0;
       top: 0;
       z-index: -1;
+
+      @media ($media-md) {
+        width: calc(100% - #{rem(58px)});
+      }
     }
   }
 
   &__slogan {
-    max-width: 128px;
-    margin-left: 43px;
+    max-width: rem(128px);
+    margin-left: rem(43px);
+
+    @media ($media-md) {
+      max-width: rem(99px);
+      margin-left: rem(49px);
+    }
   }
 
   &__separator {
-    width: 1px;
+    width: rem(1px);
     height: 100%;
     background-image: linear-gradient(
       to bottom,
       $color-black 50%,
       transparent 0
     );
-    background-size: 4px 12px;
+    background-size: rem(4px) rem(12px);
     background-repeat: repeat-y;
-    margin-left: 32px;
+    margin-left: rem(32px);
+
+    @media ($media-md) {
+      display: none;
+    }
   }
 
   &__lang {
-    padding: 0 40px;
+    padding: 0 rem(40px);
     display: flex;
     align-items: center;
-    gap: 37px;
+    gap: rem(37px);
+
+    @media ($media-md) {
+      display: none;
+    }
 
     &-item {
       cursor: pointer;
@@ -135,16 +162,22 @@ const onOpenMenu = (): void => {
   }
 
   &__burger {
-    width: 88px;
-    height: 88px;
+    width: rem(88px);
+    height: rem(88px);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     background-color: $color-green;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 rem(20px) rem(20px) 0;
     transition: $transition3;
     clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 0 100%, 0% 50%);
+
+    @media ($media-md) {
+      width: rem(58px);
+      height: rem(58px);
+      margin-left: rem(44px);
+    }
 
     &:hover {
       background-color: $color-light-green;
@@ -152,8 +185,13 @@ const onOpenMenu = (): void => {
 
     i {
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: rem(40px);
+      height: rem(40px);
+
+      @media ($media-md) {
+        width: rem(28px);
+        height: rem(28px);
+      }
     }
   }
 }

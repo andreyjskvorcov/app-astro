@@ -33,37 +33,55 @@ import { PButton } from '@/components/ui';
 <style lang="scss">
 .project-selector {
   position: absolute;
-  bottom: 40px;
+  bottom: rem(40px);
   left: 50%;
   transform: translate(-50%);
   z-index: 4;
 
+  @media ($media-md) {
+    width: calc(100% - 16px);
+  }
+
   &__content {
-    backdrop-filter: blur(12.5px);
-    -webkit-backdrop-filter: blur(12.5px);
-    padding: 30px 0;
-    width: 592px;
-    border-radius: 15px;
+    backdrop-filter: blur(rem(12.5px));
+    -webkit-backdrop-filter: blur(rem(12.5px));
+    padding: rem(30px) 0;
+    max-width: rem(592px);
+    border-radius: rem(15px);
     background: rgba($color-total-white, 0.8);
     display: flex;
     flex-direction: column;
     text-align: center;
     overflow: hidden;
     transition: $transition3;
+    width: 100%;
+
+    @media ($media-md) {
+      order: -1;
+      grid-column: $col-span-2;
+    }
   }
 
   &__container {
     display: flex;
     align-items: flex-end;
-    gap: 32px;
+    gap: rem(32px);
+    width: max-content;
+    
+    @media ($media-md) {
+      width: auto;
+      display: grid;
+      grid-template-columns: $grid-cols-2;
+      gap: rem(9px);
+    }
   }
 
   &__title {
     display: flex;
     flex-direction: column;
-    padding: 0 32px;
+    padding: 0 rem(32px);
     text-transform: uppercase;
-    gap: 10px;
+    gap: rem(10px);
     
     span {
       transition: $transition3;
@@ -77,51 +95,56 @@ import { PButton } from '@/components/ui';
 
   &__separator {
     width: 100%;
-    height: 1px;
+    height: 1px; // ← оставляем hairline
     background-image: linear-gradient(
       to right,
       $color-black 50%,
       transparent 0
     );
-    background-size: 8px 2px;
+    background-size: rem(8px) rem(2px);
     background-repeat: repeat-x;
-    margin: 30px 0;
+    margin: rem(30px) 0;
     transition: $transition3;
   }
 
   &__description {
-    padding: 0 32px;
+    padding: 0 rem(32px);
     transition: $transition3;
   }
 
   &__navigation-left,
   &__navigation-right {
-    width: 64px;
+    width: rem(64px);
+
+    @media ($media-md) {
+      width: 100%;
+      grid-column: $col-span-1;
+    }
   }
 
   &.is-collapsed {
     .project-selector__title {
       span {
         position: absolute;
-        transform: translateX(-300px);
+        transform: translateX(rem(-300px));
         opacity: 0;
       }
 
       h3 {
-        font-size: 19px;
-        line-height: 24px;
+        font-size: rem(19px);
+        line-height: rem(24px);
       }
     }
 
     .project-selector__description,
     .project-selector__separator {
       position: absolute;
-      transform: translateX(300px);
+      transform: translateX(rem(300px));
       opacity: 0;
     }
 
     .project-selector__content {
-      padding: 20px 40px;
+      padding: rem(20px) rem(40px);
     }
   }
 }
