@@ -47,7 +47,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: ".hero-section",
       start: "30% center",
-      end: "+=600",      // больше = плавнее
+      end: "+=600",
       scrub: true,
     },
   })
@@ -58,7 +58,7 @@ onMounted(() => {
       trigger: sectionRef.value,
       scrub: true,
       start: "top top",
-      end: "+=400", // меньше значение = быстрее
+      end: "+=400",
     }
   })
 

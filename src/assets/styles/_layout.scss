@@ -1,8 +1,29 @@
 @use "variables" as *;
 
+
+
 html {
   scroll-behavior: smooth;
+  font-size: clamp(14px, calc(14px + (20 - 14) * ((100vw - 375px) / (2560 - 375))), 20px);
+
+  @media (min-width: 375px) {
+  html { font-size: 14px; } /* 1rem = 14px */
 }
+
+@media (min-width: 1280px) {
+  html { font-size: 16px; } /* 1rem = 16px */
+}
+
+@media (min-width: 1920px) {
+  html { font-size: 18px; } /* 1rem = 18px */
+}
+
+@media (min-width: 2560px) {
+  html { font-size: 20px; } /* 1rem = 20px */
+}
+}
+
+
 
 body {
   margin: 0;
