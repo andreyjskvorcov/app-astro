@@ -31,7 +31,7 @@ import {
 import { useGsap } from '@libs/gsap'
 import { onMounted, ref } from 'vue';
 
-const { gsap, SplitText, ScrollTrigger, ScrollSmoother } = useGsap()
+const { gsap, SplitText, ScrollTrigger } = useGsap()
 
 const isCollapsed = ref(false)
 const sectionRef = ref<HTMLElement | null>(null)
