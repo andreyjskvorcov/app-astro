@@ -185,6 +185,7 @@ onMounted(() => {
     &-wrap {
       background-color: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(100px);
+      -webkit-backdrop-filter: blur(100px);
       border-radius: 15px;
       padding: 40px;
       display: flex;

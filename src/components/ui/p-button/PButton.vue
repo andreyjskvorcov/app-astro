@@ -35,8 +35,9 @@ const props = withDefaults(defineProps<IProps>(), {
   align-items: center;
   gap: 10px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
   color: $color-black;
   font-size: 11px;
   font-style: normal;

@@ -31,6 +31,7 @@ const model = defineModel({
     border-radius: 15px;
     background: rgba(246, 246, 246, 0.80);
     backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
     border: none;
     outline: none;
     display: flex;

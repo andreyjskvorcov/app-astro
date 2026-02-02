@@ -128,6 +128,7 @@ onMounted(() => {
     grid-column: $col-span-1;
     background: rgba($color-total-white, 0.8);
     backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
     border-radius: 15px;
     min-height: 226px;
     display: flex;

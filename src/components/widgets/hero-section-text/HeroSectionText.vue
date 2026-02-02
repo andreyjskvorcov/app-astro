@@ -90,6 +90,7 @@ onMounted(() => {
       grid-column: $col-span-1;
       background: rgba($color-total-white, 0.8);
       backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       border-radius: 15px;
       padding: 40px;
       min-height: 272px;

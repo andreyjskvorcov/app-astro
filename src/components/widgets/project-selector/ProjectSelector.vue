@@ -40,6 +40,7 @@ import { PButton } from '@/components/ui';
 
   &__content {
     backdrop-filter: blur(12.5px);
+    -webkit-backdrop-filter: blur(12.5px);
     padding: 30px 0;
     width: 592px;
     border-radius: 15px;

@@ -79,6 +79,7 @@ const onOpenMenu = (): void => {
 
     &::before {
       backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       background: rgba($color-gray, 0.8);
       border-radius: 20px 0 0 20px;
       clip-path: polygon(5% 0, 100% 0, 100% 80%, 100% 100%, 0 100%, 0 30%);
