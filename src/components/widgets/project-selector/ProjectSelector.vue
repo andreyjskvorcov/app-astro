@@ -1,5 +1,5 @@
 <template>
-  <div class="project-selector" :class="{ 'is-collapsed': props.isCollapsed}">
+  <div class="project-selector">
     <div class="project-selector__container">
       <PButton class="project-selector__navigation-left">
         <i class="u-icon u-icon-arrow-left"></i>
@@ -28,13 +28,11 @@
 
 <script lang="ts" setup>
 import { PButton } from '@/components/ui';
-
-const props = defineProps<{ isCollapsed: boolean}>()
 </script>
 
 <style lang="scss">
 .project-selector {
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translate(-50%);

@@ -7,6 +7,7 @@ let registered = false;
 export function useGsap() {
   if (!registered && typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
     registered = true;
   }
 
