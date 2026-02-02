@@ -1,26 +1,13 @@
 @use "variables" as *;
-
-
+@use "mixins" as *;
 
 html {
   scroll-behavior: smooth;
-  font-size: clamp(14px, calc(14px + (20 - 14) * ((100vw - 375px) / (2560 - 375))), 20px);
 
-  @media (min-width: 375px) {
-  html { font-size: 14px; } /* 1rem = 14px */
-}
-
-@media (min-width: 1280px) {
-  html { font-size: 16px; } /* 1rem = 16px */
-}
-
-@media (min-width: 1920px) {
-  html { font-size: 18px; } /* 1rem = 18px */
-}
-
-@media (min-width: 2560px) {
-  html { font-size: 20px; } /* 1rem = 20px */
-}
+  @media (min-width: 375px)  { font-size: 14px; }
+  @media (min-width: 1280px) { font-size: 16px; }
+  @media (min-width: 1920px) { font-size: 18px; }
+  @media (min-width: 2560px) { font-size: 20px; }
 }
 
 
@@ -36,8 +23,8 @@ body {
   position: relative;
   background-color: rgb(238, 238, 238);
   font-family: $main-font;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: fluid(12px, 14px);
+  line-height: fluid(16px, 22px);
   color: $color-black;
   letter-spacing: 2%;
   overscroll-behavior: none;

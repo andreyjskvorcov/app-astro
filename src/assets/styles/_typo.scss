@@ -1,55 +1,57 @@
+@use "mixins" as *;
+
 strong {
-  font-size: 171px;
-  line-height: 160px;
-  letter-spacing: -6%;
+  font-size: fluid(81px, 171px);
+  line-height: fluid(70px, 160px);
+  letter-spacing: -0.06em;
   font-weight: 400;
 }
 
 h1 {
-  font-size: 68px;
-  line-height: 76px;
-  letter-spacing: -3%;
+  font-size: fluid(32px, 68px);
+  line-height: fluid(33px, 76px);
+  letter-spacing: -0.03em;
   font-weight: 400;
 }
 
 h2 {
-  font-size: 40px;
-  line-height: 44px;
-  letter-spacing: -3%;
+  font-size: fluid(19px, 40px);
+  line-height: fluid(19px, 44px);
+  letter-spacing: -0.03em;
   font-weight: 400;
 }
 
 h3 {
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: -1%;
+  font-size: fluid(11px, 24px);
+  line-height: fluid(12px, 28px);
+  letter-spacing: -0.01em;
   font-weight: 400;
 }
 
 h4 {
-  font-size: 19px;
-  line-height: 24px;
+  font-size: fluid(9px, 19px);
+  line-height: fluid(10px, 24px);
   letter-spacing: 0;
   font-weight: 400;
 }
 
 p {
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 2%;
+  font-size: fluid(6px, 12px);
+  line-height: fluid(7px, 16px);
+  letter-spacing: 0.02em;
   font-weight: 400;
 }
 
 span {
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 5%;
+  font-size: fluid(5px, 11px);
+  line-height: fluid(7px, 16px);
+  letter-spacing: 0.05em;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 sup {
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 2%;
+  font-size: fluid(7px, 14px);
+  line-height: fluid(10px, 22px);
+  letter-spacing: 0.02em;
 }
