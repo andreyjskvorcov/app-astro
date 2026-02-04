@@ -18,9 +18,13 @@ const search = ref('')
 <style lang="scss">
 .hero-section-search {
   position: absolute;
-  right: 40px;
-  top: 40px;
+  right: rem(40px);
+  top: rem(40px);
   z-index: 2;
-  width: 272px;
+  width: rem(272px);
+
+  @media ($media-lg) {
+    display: none;
+  }
 }
 </style>

@@ -19,20 +19,24 @@
 <style lang="scss">
 .print-x {
   position: fixed;
-  right: 40px;
-  bottom: 40px;
+  right: rem(40px);
+  bottom: rem(40px);
   cursor: pointer;
   z-index: 4;
 
+  @media ($media-2xl) {
+    display: none;
+  }
+
   &__container {
     display: flex;
-    width: 280px;
-    height: 150px;
-    padding: 25px;
+    width: rem(280px);
+    height: rem(150px);
+    padding: rem(25px);
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    border-radius: 15px;
+    border-radius: rem(15px);
     background-color: $color-dark-purple;
   }
 
@@ -40,7 +44,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 24px;
+    gap: rem(24px);
     color: $color-total-white;
     text-transform: uppercase;
     width: 100%;

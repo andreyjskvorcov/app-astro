@@ -14,12 +14,16 @@
 <style lang="scss">
 .scroll-down-button {
   position: fixed;
-  bottom: 40px;
-  left: 40px;
+  bottom: rem(40px);
+  left: rem(40px);
   display: flex;
-  gap: 15px;
+  gap: rem(15px);
   align-items: center;
   text-transform: uppercase;
   z-index: 4;
+
+  @media ($media-2xl) {
+    display: none;
+  }
 }
 </style>
