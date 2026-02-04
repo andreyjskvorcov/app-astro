@@ -1,93 +1,57 @@
 @use "mixins" as *;
-@use "variables" as *;
 
 strong {
-  font-size: rem(171px);
-  line-height: rem(160px);
-  letter-spacing: -0.06em; // 6%
+  font-size: fluid(81px, 171px);
+  line-height: fluid(70px, 160px);
+  letter-spacing: -0.06em;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(52px);
-    line-height: rem(46px);
-  }
 }
 
 h1 {
-  font-size: rem(68px);
-  line-height: rem(76px);
-  letter-spacing: -0.03em; // 3%
+  font-size: fluid(32px, 68px);
+  line-height: fluid(33px, 76px);
+  letter-spacing: -0.03em;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(32px);
-    line-height: rem(33px);
-  }
 }
 
 h2 {
-  font-size: rem(40px);
-  line-height: rem(44px);
+  font-size: fluid(19px, 40px);
+  line-height: fluid(19px, 44px);
   letter-spacing: -0.03em;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(22px);
-    line-height: rem(24px);
-  }
 }
 
 h3 {
-  font-size: rem(24px);
-  line-height: rem(28px);
+  font-size: fluid(11px, 24px);
+  line-height: fluid(12px, 28px);
   letter-spacing: -0.01em;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(17px);
-    line-height: rem(20px);
-  }
 }
 
 h4 {
-  font-size: rem(19px);
-  line-height: rem(24px);
+  font-size: fluid(9px, 19px);
+  line-height: fluid(10px, 24px);
   letter-spacing: 0;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(14px);
-    line-height: rem(16px);
-  }
 }
 
 p {
-  font-size: rem(12px);
-  line-height: rem(16px);
+  font-size: fluid(6px, 12px);
+  line-height: fluid(7px, 16px);
   letter-spacing: 0.02em;
   font-weight: 400;
-
-  @media ($media-md) {
-    font-size: rem(10px);
-    line-height: rem(14px);
-  }
 }
 
 span {
-  font-size: rem(11px);
-  line-height: rem(16px);
+  font-size: fluid(5px, 11px);
+  line-height: fluid(7px, 16px);
   letter-spacing: 0.05em;
   font-weight: 500;
   text-transform: uppercase;
-
-   @media ($media-md) {
-    font-size: rem(9px);
-    line-height: rem(10px);
-  }
 }
 
 sup {
-  font-size: rem(14px);
-  line-height: rem(22px);
+  font-size: fluid(7px, 14px);
+  line-height: fluid(10px, 22px);
   letter-spacing: 0.02em;
 }

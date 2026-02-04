@@ -29,25 +29,22 @@ const props = withDefaults(defineProps<IProps>(), {
 .p-button {
   display: flex;
   width: 100%;
-  height: rem(64px);
-  min-width: rem(64px);
-  padding: rem(11px);
+  height: 64px;
+  padding: 11px;
   justify-content: center;
   align-items: center;
-  gap: rem(10px);
-  border-radius: rem(15px);
+  gap: 10px;
+  border-radius: 15px;
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(rem(12.5px));
-  -webkit-backdrop-filter: blur(rem(12.5px));
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
   color: $color-black;
-
-  font-size: rem(11px);
+  font-size: 11px;
   font-style: normal;
   font-weight: 500;
-  line-height: rem(16px);
-  letter-spacing: 0.05em; // 0.55px / 11px
+  line-height: 16px; /* 145.455% */
+  letter-spacing: 0.55px;
   text-transform: uppercase;
-
   outline: none;
   border: none;
   transition: $transition3;
@@ -62,8 +59,8 @@ const props = withDefaults(defineProps<IProps>(), {
   }
 
   .u-icon {
-    width: rem(24px);
-    height: rem(24px);
+    width: 24px;
+    height: 24px;
   }
 }
 

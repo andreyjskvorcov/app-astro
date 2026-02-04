@@ -1,15 +1,10 @@
 @use "variables" as *;
-@use "mixins" as *;
 
 .container {
-  padding: 0 rem(40px);
+  padding: 0 40px;
   width: 100%;
   margin: 0 auto;
-  max-width: rem(1920px);
-
-  @media ($media-md) {
-    padding: 0 rem(12px);
-  }
+  max-width: 1920px;
 }
 
 .page-full {

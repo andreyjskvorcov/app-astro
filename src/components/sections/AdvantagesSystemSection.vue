@@ -102,73 +102,34 @@ onMounted(() => {
   min-height: 100vh;
   overflow: hidden;
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: rem(1000px);
-    height: rem(1000px);
-    top: 50%;
-    transform: translateY(-50%);
-    left: rem(-700px);
-    background-color: $color-green;
-    border-radius: 50%;
-    filter: blur(rem(100px));
-    z-index: 1;
-    opacity: 0.3;
-
-    @media ($media-md) {
-      position: absolute;
-      width: rem(500px);
-      height: rem(500px);
-      top: 50%;
-      transform: translateY(-50%);
-      left: rem(-350px);
-      z-index: 0;
-    }
-  }
-
   &__title {
     display: flex;
-    gap: rem(30px);
+    gap: 30px;
     align-items: center;
   }
 
   &__container  {
-    padding-top: rem(50px);
-    padding-bottom: rem(50px);
-
-    @media ($media-md) {
-      padding-top: rem(20px);
-      padding-bottom: rem(20px);
-    }
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   &__item {
     display: flex;
     align-items: end;
-    padding: rem(60px) 0;
+    padding: 60px 0;
     position: relative;
-
-    @media ($media-lg) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    @media ($media-md) {
-      padding: rem(24px) 0;
-    }
 
     &:last-child {
       &::after {
         content: '';
-        height: 1px; // ← оставляем
+        height: 1px;
         width: 100%;
         background-image: linear-gradient(
           to right,
           $color-black 50%,
           transparent 0
         );
-        background-size: rem(8px) rem(2px);
+        background-size: 8px 2px;
         background-repeat: repeat-x;
         position: absolute;
         left: 0;
@@ -178,14 +139,14 @@ onMounted(() => {
 
     &::before {
       content: '';
-      height: 1px; // ← оставляем
+      height: 1px;
       width: 100%;
       background-image: linear-gradient(
         to right,
         $color-black 50%,
         transparent 0
       );
-      background-size: rem(8px) rem(2px);
+      background-size: 8px 2px;
       background-repeat: repeat-x;
       position: absolute;
       left: 0;
@@ -195,27 +156,25 @@ onMounted(() => {
     h1 {
       display: flex;
       position: relative;
+
+      sup {
+        position: absolute;
+        right: -40px;
+        top: 0;
+      }
     }
 
     h3 {
-      max-width: rem(436px);
+      max-width: 436px;
       width: 100%;
       margin-left: auto;
-
-      @media ($media-lg) {
-        margin-left: initial;
-      }
     }
   }
 
   &__items {
     display: flex;
     flex-direction: column;
-    margin-top: rem(100px);
-
-    @media ($media-md) {
-      margin-top: rem(40px);
-    }
+    margin-top: 100px;
   }
 }
 </style>
