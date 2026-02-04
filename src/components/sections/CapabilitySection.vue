@@ -108,7 +108,7 @@ onMounted(() => {
 
 <style lang="scss">
 .capability-section {
-  padding: rem(50px) 0;
+  padding: 50px 0;
   background-color: $color-dark-purple;
   width: 100%;
   height: 100%;
@@ -120,48 +120,35 @@ onMounted(() => {
   &::before {
     content: '';
     position: absolute;
-    width: rem(1000px);
-    height: rem(1000px);
-    top: rem(-500px);
-    left: rem(-500px);
+    width: 1000px;
+    height: 1000px;
+    top: -500px;
+    left: -500px;
     background-color: $color-dark-purple-second;
     border-radius: 50%;
-    filter: blur(rem(100px));
+    filter: blur(100px);
     z-index: 1;
     opacity: 0.5;
-
-    @media ($media-md) {
-      width: rem(500px);
-      height: rem(500px);
-      top: rem(-350px);
-      left: rem(-350px);
-    }
   }
 
   &::after {
     content: '';
     position: absolute;
-    width: rem(1000px);
-    height: rem(1000px);
+    width: 1000px;
+    height: 1000px;
     top: 50%;
     transform: translateY(-50%);
-    right: rem(-700px);
+    right: -700px;
     background-color: $color-green;
     border-radius: 50%;
-    filter: blur(rem(100px));
+    filter: blur(100px);
     z-index: 1;
     opacity: 0.30;
-
-    @media ($media-md) {
-      width: rem(500px);
-      height: rem(500px);
-      right: rem(-350px);
-    }
   }
 
   &__title {
     display: flex;
-    gap: rem(30px);
+    gap: 30px;
     align-items: center;
   }
 
@@ -176,14 +163,9 @@ onMounted(() => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: rem(800px);
-    height: rem(759px);
-    margin: rem(12px) rem(2px);
-
-    @media ($media-md) {
-      width: rem(360px);
-      height: rem(360px);
-    }
+    width: 800px;
+    height: 759px;
+    margin: 12px 2px;
   }
 
   &__item {
@@ -194,34 +176,27 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
-    padding-bottom: rem(32px);
+    padding-bottom: 32px;
 
     &:first-child {
-      margin-left: rem(300px);
+      margin-left: 300px;
     }
 
     &-wrap {
       background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(rem(100px));
-      -webkit-backdrop-filter: blur(rem(100px));
-      border-radius: rem(15px);
-      padding: rem(40px);
+      backdrop-filter: blur(100px);
+      -webkit-backdrop-filter: blur(100px);
+      border-radius: 15px;
+      padding: 40px;
       display: flex;
       flex-wrap: wrap;
-      height: rem(370px);
-      width: rem(592px);
+      height: 370px;
+      width: 592px;
       position: relative;
-
-      @media ($media-md) {
-        height: rem(220px);
-        width: 100%;
-        max-width: rem(351px);
-        padding: rem(18px);
-      }
     }
 
     h3 {
-      max-width: rem(300px);
+      max-width: 300px;
     }
 
     h4 {

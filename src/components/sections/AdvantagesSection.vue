@@ -72,50 +72,33 @@ onMounted(() => {
   min-height: 100vh;
   overflow: hidden;
 
-  @media ($media-md) {
-    padding: rem(254px) 0 20px;
-  }
-
   &::before {
     content: '';
     position: absolute;
-    width: rem(1000px);
-    height: rem(1000px);
-    top: rem(-500px);
-    left: rem(-500px);
+    width: 1000px;
+    height: 1000px;
+    top: -500px;
+    left: -500px;
     background-color: $color-dark-purple-second;
     border-radius: 50%;
-    filter: blur(rem(100px));
+    filter: blur(100px);
     z-index: 1;
     opacity: 0.5;
-
-    @media ($media-md) {
-      width: rem(500px);
-      height: rem(500px);
-      top: rem(-350px);
-      left: rem(-350px);
-    }
   }
 
   &::after {
     content: '';
     position: absolute;
-    width: rem(1000px);
-    height: rem(1000px);
+    width: 1000px;
+    height: 1000px;
     top: 50%;
     transform: translateY(-50%);
-    right: rem(-700px);
+    right: -700px;
     background-color: $color-green;
     border-radius: 50%;
-    filter: blur(rem(100px));
+    filter: blur(100px);
     z-index: 1;
-    opacity: 0.3;
-
-    @media ($media-md) {
-      width: rem(500px);
-      height: rem(500px);
-      right: rem(-350px);
-    }
+    opacity: 0.30;
   }
 
   &__image {
@@ -130,94 +113,71 @@ onMounted(() => {
     top: 0;
     width: 100%;
     height: 100%;
-
-    @media ($media-md) {
-      height: 502px;
-    }
   }
 
   &__items {
     position: relative;
     z-index: 2;
+    gap: 28px 32px;
     display: grid;
-    gap: rem(28px) rem(32px);
     grid-template-columns: $grid-cols-3;
     grid-template-rows: $grid-cols-2;
-
-    @media ($media-lg) {
-      grid-template-columns: $grid-cols-1;
-      grid-template-rows: inherit;
-      gap: rem(12rem);
-    }
   }
 
   &__item {
     grid-column: $col-span-1;
     background: rgba($color-total-white, 0.8);
-    backdrop-filter: blur(rem(100px));
-    -webkit-backdrop-filter: blur(rem(100px));
-    border-radius: rem(15px);
-    min-height: rem(226px);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    border-radius: 15px;
+    min-height: 226px;
     display: flex;
     flex-direction: column;
-    padding: rem(40px);
+    padding: 40px;
     text-transform: lowercase;
 
-
     &:first-child {
-      grid-area: 1 / 1 / 2 / 2;
-
-      @media ($media-lg) {
-        grid-area: initial;
-      }
+      grid-area: 1 / 1 / 2 / 2;;
     }
 
     &:nth-child(2) {
-      grid-area: 2 / 2 / 3 / 3;
-
-      @media ($media-lg) {
-       grid-area: initial;
-      }
+      grid-area: 2 / 2 / 3 / 3;;
     }
 
     &:last-child {
-      grid-area: 1 / 3 / 2 / 4;
-
-      @media ($media-lg) {
-        grid-area: initial;
-      }
+      grid-area: 1 / 3 / 2 / 4;;
     }
 
     h1 {
       display: flex;
       position: relative;
-      line-height: rem(46px);
+      line-height: 46px;
 
       &::after {
         content: '';
         margin-left: auto;
-        width: rem(14px);
-        height: rem(14px);
+        width: 14px;
+        height: 14px;
         border-radius: 50%;
-        border: rem(1px) solid $color-green;
+        border: 1px solid $color-green;
       }
     }
 
     h4 {
       margin-top: auto;
-      max-width: rem(420px);
+      max-width: 420px;
       width: 100%;
     }
 
     .percent {
-      width: rem(44px);
-      height: rem(44px);
-      border-radius: rem(10px);
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: rem(1px) solid $color-green;
-      margin-left: rem(15px);
+      border: 1px solid $color-green;
+      margin-left: 15px;
     }
   }
 }
